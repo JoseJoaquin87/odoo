@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="tots.net_tree">
+      <field name="name">net list</field>
+      <field name="model">tots.net</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="mask"/>
+          <field name="net_map"/>
+          <field name="net_class"/>
+          <field name="pcs"/>
+          <field name="servers"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tots.pc_tree">
+      <field name="name">pc list</field>
+      <field name="model">tots.pc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="ping"/>
+          <field name="registered"/>
+          <field name="uptime"/>
+          <field name="net"/>
+          <field name="servers"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tots.net_form">
+      <field name="name">net list</field>
+      <field name="model">tots.net</field>
+      <field name="arch" type="xml">
+        <form><sheet><group>
+          <field name="name"/>
+          <field name="mask"/>
+          <field name="net_map" widget="image"/>
+          <field name="net_class"/>
+          <field name="pcs"/>
+          <field name="servers"/>
+        </group></sheet></form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tots.pc_form">
+      <field name="name">pc list</field>
+      <field name="model">tots.pc</field>
+      <field name="arch" type="xml">
+        <form><sheet><group>
+          <field name="name"/>
+          <field name="ping"/>
+          <field name="registered"/>
+          <field name="uptime"/>
+          <field name="net"/>
+          <field name="servers"/>
+        </group></sheet></form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="tots.action_net">
+      <field name="name">Net</field>
+      <field name="res_model">tots.net</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tots.action_pc">
+      <field name="name">Pc</field>
+      <field name="res_model">tots.pc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Networks" id="tots.menu_root"/>
+
+    <menuitem name="Networks" id="tots.networks" parent="tots.menu_root"/>
+
+    <menuitem name="Nets" id="tots.net_list" parent="tots.networks"
+              action="tots.action_net"/>
+    <menuitem name="PCs" id="tots.pc_list" parent="tots.networks"
+              action="tots.action_pc"/>
+  </data>
+</odoo>
